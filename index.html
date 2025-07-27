@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حجز تذاكر النايت كلوب - تجربة فاخرة</title>
+    <title>Evening Dining Offers - Premium Restaurant</title>
     <style>
         * {
             margin: 0;
@@ -12,252 +12,373 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: linear-gradient(135deg, #f8e7d1 0%, #f3c6c6 100%);
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        .packages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .package {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
+            direction: rtl;
             position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            animation: slideInUp 0.8s ease-out;
         }
-
-        .package:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .package::before {
+        body::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background: url('18183_703121.jpeg') center center/cover no-repeat;
+            animation: bgSwitch 24s linear infinite;
+        }
+        @keyframes bgSwitch {
+            0% { background-image: url('18183_703121.jpeg'); }
+            25% { background-image: url('357031_500160.jpeg'); }
+            50% { background-image: url('467018877_122094552596643264_5166060241914491195_n.jpg'); }
+            75% { background-image: url('515937717_122140568642643264_8812620047065069950_n.jpg'); }
+            100% { background-image: url('18183_703121.jpeg'); }
+        }
+        header {
+            background: #b71c1c;
+            color: #fff;
+            padding: 24px 0 16px 0;
+            box-shadow: 0 2px 12px #0002;
         }
 
-        .package:hover::before {
-            left: 100%;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .package-header {
+        .logo {
+            font-size: 2.3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-right: 30px;
+            display: inline-block;
+            color: #fffde7;
+            text-shadow: 0 2px 8px #b71c1c;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fffde7;
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: #ff6b6b;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Welcome Section */
+        .welcome {
+            background: #fffde7;
+            margin: 30px auto 20px auto;
+            padding: 30px 36px;
+            border-radius: 20px;
+            max-width: 650px;
+            box-shadow: 0 2px 16px #b71c1c22;
+            text-align: center;
+            animation: fadeIn 1.2s;
+        }
+
+        .welcome h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .welcome p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #ffd54f;
+            color: #b71c1c;
+            padding: 12px 0;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Offers Section */
+        .offers {
+            background: #fffde7;
+            padding: 40px 0;
+        }
+
+        .offers h2 {
+            color: #b71c1c;
+            font-size: 2.2rem;
             margin-bottom: 30px;
         }
 
-        .package-title {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #ffd93d;
-            text-shadow: 0 0 20px rgba(255, 217, 61, 0.5);
+        .offers-grid {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .vip-title {
-            color: #ff6b6b;
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        .offer-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 16px #b71c1c22;
+            padding: 36px 28px;
+            width: 340px;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .offer-card:hover {
+            transform: scale(1.06);
+            box-shadow: 0 8px 32px #b71c1c44;
+        }
+
+        .offer-title {
+            font-size: 1.5rem;
+            color: #b71c1c;
+            margin-bottom: 12px;
+            font-weight: bold;
+            text-shadow: 0 2px 8px #ffd54f44;
         }
 
         .price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #388e3c;
+            margin-bottom: 12px;
         }
 
         .original-price {
             text-decoration: line-through;
             color: #999;
-            font-size: 1.5rem;
-            margin-left: 10px;
+            font-size: 1.1rem;
+            margin-left: 1rem;
         }
 
-        .discount-badge {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .features {
+        .offer-features {
             text-align: right;
-            margin: 30px 0;
+            margin-bottom: 12px;
         }
 
-        .features h3 {
-            color: #4ecdc4;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-5px);
-        }
-
-        .feature-icon {
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(45deg, #6bcf7f, #4ecdc4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-            font-size: 1.2rem;
+        .offer-features li {
+            margin-bottom: 9px;
+            font-size: 1.08rem;
         }
 
         .book-btn {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            color: #000;
+            background: linear-gradient(90deg, #b71c1c 60%, #ffd54f 100%);
+            color: #fff;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            border-radius: 12px;
+            padding: 18px 0;
+            width: 100%;
+            font-size: 1.25rem;
             font-weight: bold;
-            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 2px 12px #b71c1c44;
+            margin-top: 18px;
+            transition: background 0.2s, transform 0.2s;
+            letter-spacing: 1px;
         }
 
         .book-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(90deg, #ffd54f 0%, #b71c1c 100%);
+            color: #fffde7;
+            transform: scale(1.04);
         }
 
-        .book-btn:active {
-            transform: scale(0.98);
-        }
-
-        .floating-elements {
+        /* Modal */
+        .modal {
+            display: none;
             position: fixed;
-            top: 0;
+            z-index: 2000;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
         }
 
-        .floating-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(255, 217, 61, 0.1));
-            animation: float 6s ease-in-out infinite;
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .floating-circle:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
+        .modal-content {
+            background: #fffde7;
+            box-shadow: 0 2px 24px #b71c1c44;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            animation: modalSlideIn 0.3s ease;
         }
 
-        .floating-circle:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
+        .close {
+            background: #b71c1c;
+            color: #fff;
         }
 
-        .floating-circle:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
+        .close:hover {
+            color: #000;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            33% {
-                transform: translateY(-20px) rotate(120deg);
-            }
-            66% {
-                transform: translateY(20px) rotate(240deg);
-            }
+        .rtl .close {
+            float: left;
         }
 
-        @keyframes fadeInDown {
+        .modal h2 {
+            color: #764ba2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+
+        .offer-summary {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #764ba2;
+        }
+
+        .rtl .offer-summary {
+            border-left: none;
+            border-right: 4px solid #764ba2;
+        }
+
+        .price-summary {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #764ba2;
+            text-align: center;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(90deg, #25d366 60%, #128c7e 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 0;
+            width: 100%;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 18px;
+            box-shadow: 0 2px 12px #25d36644;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(90deg, #128c7e 0%, #25d366 100%);
+            color: #fffde7;
+            transform: scale(1.04);
+        }
+
+        .whatsapp-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Hidden content for language switching */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        .lang-content.active.inline {
+            display: inline;
+        }
+
+        .lang-content.active.inline-block {
+            display: inline-block;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -266,432 +387,312 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
-                opacity: 0.7;
-                transform: scale(1);
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
             }
-            50% {
+            to {
                 opacity: 1;
-                transform: scale(1.02);
+                transform: translateY(0);
             }
         }
 
-        .booking-form {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 50px;
-            display: none;
-            animation: slideInUp 0.5s ease-out;
-        }
-
-        .booking-form.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #4ecdc4;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #4ecdc4;
-            box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
-        }
-
-        .form-group input::placeholder {
-            color: #999;
-        }
-
-        .confirm-btn {
-            background: linear-gradient(45deg, #6bcf7f, #4ecdc4);
-            color: #000;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .confirm-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.4);
-        }
-
-        .back-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
             }
-            
-            .packages {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .package {
-                padding: 30px 20px;
-            }
-            
-            .package-title {
+
+            .welcome h1 {
                 font-size: 2rem;
             }
-            
-            .price {
-                font-size: 2.5rem;
+
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
             }
         }
+
+        /* Arabic font styling */
+        .rtl * {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    NIGHT CLUB
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#offers">العروض</a></li>
+                        <li><a href="https://wa.me/201114733671">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome" id="home">
+        <div class="container">
+            <h1>اهلا بيكم في سهرات و حفلات</h1>
+            <p>استمتع بعروضنا المسائية الحصرية مع المشروبات الفاخرة واجمل الحفلات</p>
+            <div class="discount-badge">🎉 خصم 25% على جميع الحجوزات اليوم!</div>
+            <div style="margin:20px 0 0 0; font-size:1.1rem; color:#388e3c; background:#fff; border-radius:12px; padding:18px; box-shadow:0 2px 12px #b71c1c22; max-width:500px; margin:auto;">
+                ✅ نحن نهتم براحتك وسرية بياناتك. جميع الحجوزات مؤمنة ويتم التعامل معها بسرية تامة. فريقنا جاهز لخدمتك على مدار الساعة لضمان أفضل تجربة لك. <br>احجز بثقة واستمتع بأجمل السهرات معنا!
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="offers" id="offers">
+        <div class="container">
+            <h2>عروض التيكت</h2>
+            <div class="offers-grid">
+                <!-- Second Row Offer -->
+                <div class="offer-card">
+                    <div class="offer-title">💥عرض الصف الثاني</div>
+                    <div class="price"><span class="original-price">1500 جنيه</span> 1000 جنيه</div>
+                    <ul class="offer-features">
+                        <li>🍹 مشروبان مستوردان فاخران من اختيارك</li>
+                        <li>🍽️ طبق مقبلات شرقي + طبق ساخن مميز</li>
+                        <li>🍓 طبق فواكه طازجة ومتنوعة عالية الجودة</li>
+                        <li>⭐ خدمة VIP وجلسة مميزة</li>
+                        <li>بنت قري  بتقد معاك علي طوله</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal('second', 1000)">📱 احجز الآن</button>
+                </div>
+                <!-- VIP Offer -->
+                <div class="offer-card">
+                    <div class="offer-title">💥 صف اول  VIP</div>
+                    <div class="price"><span class="original-price">2000 جنيه</span> 1500 جنيه</div>
+                    <ul class="offer-features">
+                        <li>🍹 3 مشروبات مستوردة فاخرة من اختيارك</li>
+                        <li>🍽️ طبق مقبلات شرقي + طبق ساخن مميز</li>
+                        <li>🍓 طبق فواكه طازجة ومتنوعة عالية الجودة</li>
+                        <li>👑 معاملة VIP حصرية وخدمة خاصة</li>
+                        <li>بنت قري  بتقد معاك علي طوله</li>
+                    </ul>
+                    <button class="book-btn" onclick="openBookingModal('vip', 1500)">📱 احجز الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="gallery-slider" style="width:100%;max-width:700px;margin:40px auto 0 auto;display:flex;justify-content:center;align-items:center;">
+        <img id="galleryImg" src="18183_703121.jpeg" alt="حفلة" style="width:100%;height:320px;object-fit:cover;border-radius:18px;box-shadow:0 2px 16px #b71c1c22;transition:opacity 1s;">
     </div>
 
-    <div class="container">
-        <div class="header">
-            <h1> Night CLUB vip            <!-- استبدل أيقونة النجمة في "ألمع النجوم" بالصورة المطلوبة -->
-            
-            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                 <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                <!-- صورة ألمع النجوم -->
-                <img src="..\صور\467018877_122094552596643264_5166060241914491195_n.jpg" alt="ألمع النجوم" style="width:250px;height:250px;object-fit:cover;border-radius:50%;margin-bottom:10px;box-shadow:0 2px 12px #ffd93d80;">
-                <h3 style="color: #ffd93d; margin-bottom: 10px; font-size: 1.5rem;">ألمع النجوم</h3>
-                <p style="color: #fff; line-height: 1.6;">عروض حية مع أشهر المطربين والفنانين في أجواء استثنائية تجعل ليلتك لا تُنسى</p>
-            </div></h1>
-            <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 30px; margin: 20px 0; text-align: center;">
-                <h2 style="color: #ffd93d; margin-bottom: 20px; font-size: 2rem;"> أهلاً وسهلاً بك في عالم الرفاهية والمتعة! </h2>
-                <p style="font-size: 1.3rem; color: #4ecdc4; margin-bottom: 15px; line-height: 1.6;">
-                    نحن هنا لنقدم لك تجربة استثنائية لا تُنسى في أجواء من الفخامة والأناقة
-                </p>
-                <p style="font-size: 1.1rem; color: #fff; margin-bottom: 10px;">
-                    ✅ أكثر من <strong style="color: #ff6b6b;">5000 عميل سعيد</strong> اختاروا خدماتنا المميزة
-                </p>
-                <p style="font-size: 1.1rem; color: #fff; margin-bottom: 10px;">
-                    ✅ فريق محترف متخصص في تقديم <strong style="color: #6bcf7f;">أفضل الخدمات</strong>
-                </p>
-                <p style="font-size: 1.1rem; color: #fff; margin-bottom: 10px;">
-                    ✅ ضمان الجودة والخصوصية التامة في <strong style="color: #4ecdc4;">بيئة آمنة ومريحة</strong>
-                </p>
-                <p style="font-size: 1.2rem; color: #ffd93d; margin-top: 20px; font-weight: bold;">
-                    🌟 ثقتك بنا هي أولويتنا الأولى - احجز الآن واستمتع بالفرق! 🌟
-                </p>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>أكمل حجزك</h2>
+            <div class="offer-summary">
+                <h3>العرض المختار</h3>
+                <p id="selectedOfferName"></p>
             </div>
-            <p>احجز مقعدك واستمتع بليلة لا تُنسى مع أفضل العروض والخدمات المميزة</p>
-            
-            <!-- برنامج الليلة -->
-            <div style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 217, 61, 0.2)); backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 30px; margin: 30px 0; animation: slideInUp 1s ease-out;">
-                <h2 style="text-align: center; color: #ff6b6b; margin-bottom: 25px; font-size: 2.5rem; text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);">
-                     برنامج الاسيوع المميز 
-                </h2>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-                    <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        <div style="font-size: 3rem; margin-bottom: 10px;">⭐</div>
-                        <img src="..\صور\515991824_122140568684643264_7930003008190678144_n.jpg" alt="مطرب يؤدي على المسرح تحت أضواء ملونة مع تعبير حيوي، خلفه جمهور يستمتع بالأجواء الاحتفالية، النص ألمع النجوم مكتوب أسفل الصورة" style="width:350px;height:350px;object-fit:cover;border-radius:100%;margin-bottom:10px;box-shadow:0 2px 50px #ffd93d80;">
-                        <h3 style="color: #ffd93d; margin-bottom: 10px; font-size: 1.5rem;">ألمع النجوم</h3>
-                        <p style="color: #fff; line-height: 1.6;">عروض حية مع أشهر المطربين والفنانين في أجواء استثنائية تجعل ليلتك لا تُنسى</p>
-                    </div>
-                    
-                    <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; text-align: center; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        <div style="font-size: 3rem; margin-bottom: 10px;">🎵</div> 
-                        <img src="..\صور\515937717_122140568642643264_8812620047065069950_n.jpg" alt="مطرب يؤدي على المسرح تحت أضواء ملونة مع تعبير حيوي، خلفه جمهور يستمتع بالأجواء الاحتفالية، النص ألمع النجوم مكتوب أسفل الصورة" style="width:350px;height:350px;object-fit:cover;border-radius:250%;margin-bottom:150px;box-shadow:0 100px 500px #ffd93d80;">
-                        <h3 style="color: #4ecdc4; margin-bottom: 10px; font-size: 1.5rem;">الطرب الشعبي الأصيل</h3>
-                        <p style="color: #fff; line-height: 1.6;">أمسيات طربية أصيلة مع أجمل الأغاني الشعبية والتراثية في أجواء عربية مميزة</p>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 25px; padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 15px;">
-                    <h4 style="color: #6bcf7f; margin-bottom: 15px; font-size: 1.3rem;">🕘 مواعيد العروض</h4>
-                    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
-                        <div style="color: #fff;">
-                            <strong style="color: #ffd93d;">80:00 م</strong><br>
-                            🎤 افتتاح الأمسية
-                        </div>
-                        <div style="color: #fff;">
-                            <strong style="color: #ff6b6b;">12:30 م</strong><br>
-                            ⭐ عروض النجوم
-                        </div>
-                        <div style="color: #fff;">
-                            <strong style="color: #4ecdc4;">1:30 ص</strong><br>
-                            🎵 الطرب الشعبي
-                        </div>
-                        <div style="color: #fff;">
-                            <strong style="color: #6bcf7f;">6:00 ص</strong><br>
-                            🎉 ختام مميز
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="packages-section">
-            <div class="packages">
-                <!-- الصف الثاني -->
-                <div class="package">
-                    <div class="package-header">
-                        <div class="package-title">الصف الثاني</div>
-                        <div class="price">
-                            1000 ج
-                            <span class="original-price">1500 ج</span>
-                        </div>
-                        <div class="discount-badge">وفر 500 جنيه!</div>
-                    </div>
-                    
-                    <div class="features">
-                        <h3>🎉 العرض يشمل:</h3>
-                        <div class="feature-item">
-                            <div class="feature-icon">🍸</div>
-                            <div>مشروبين فاخرين من اختيارك</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🥗</div>
-                            <div>طبق مازة شرقية متنوع يفتح النفس</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🍓</div>
-                            <div>طبق فواكه طازة ومختارة بعناية</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">👸</div>
-                            <div>مرافقة خاصة من اختيارك تضيف للجو لمسة مختلفة</div>
-                        </div>
-                    </div>
-                    
-                    <button class="book-btn" onclick="showBookingForm('second', 1000)">احجز الآن</button>
-                    <p style="margin-top: 15px; color: #4ecdc4; font-size: 0.9rem; animation: pulse 2s infinite;">
-                        💫 احجز من الموقع واحصل على خصم إضافي مع كود خصم خاص!
-                    </p>
-                </div>
-
-                <!-- الصف الأول VIP -->
-                <div class="package">
-                    <div class="package-header">
-                        <div class="package-title vip-title">الصف الأول VIP</div>
-                        <div class="price">
-                            1500 ج
-                            <span class="original-price">2000 ج</span>
-                        </div>
-                        <div class="discount-badge">وفر 500 جنيه!</div>
-                    </div>
-                    
-                    <div class="features">
-                        <h3>👑 العرض الملكي يشمل:</h3>
-                        <div class="feature-item">
-                            <div class="feature-icon">🥂</div>
-                            <div>ثلاث مشريب فاخرين من اختيارك</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🍽️</div>
-                            <div>طبق مازة شرقية متنوع يفتح النفس</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">🥭</div>
-                            <div>طبق فواكه طازة ومختارة بعناية</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">💎</div>
-                            <div>مرافقة خاصة من اختيارك + خدمة VIP مميزة</div>
-                        </div>
-                    </div>
-                    
-                    <button class="book-btn" onclick="showBookingForm('first', 1500)">احجز VIP الآن</button>
-                    <p style="margin-top: 15px; color: #4ecdc4; font-size: 0.9rem; animation: pulse 2s infinite;">
-                        💫 احجز من الموقع واحصل على خصم إضافي مع كود خصم خاص!
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div id="booking-form" class="booking-form">
-            <button class="back-btn" onclick="hideBookingForm()">← العودة للعروض</button>
-            <h2 style="text-align: center; margin-bottom: 30px; color: #ffd93d;">تأكيد الحجز</h2>
-            
             <div class="form-group">
-                <label>الاسم الكامل</label>
-                <input type="text" id="customer-name" placeholder="أدخل اسمك الكامل" required>
+                <label for="customerName">الاسم الكامل *</label>
+                <input type="text" id="customerName" required placeholder="أدخل اسمك الكامل">
             </div>
-            
             <div class="form-group">
-                <label>رقم الهاتف</label>
-                <input type="tel" id="customer-phone" placeholder="01xxxxxxxxx" required>
+                <label for="customerPhone">رقم الهاتف *</label>
+                <input type="tel" id="customerPhone" required placeholder="أدخل رقم هاتفك">
             </div>
-            
             <div class="form-group">
-                <label>عدد الأشخاص</label>
-                <select id="guest-count" required>
-                    <option value="">اختر عدد الأشخاص</option>
-                    <option value="1">شخص واحد</option>
-                    <option value="2">شخصان</option>
-                    <option value="3">3 أشخاص</option>
-                    <option value="4">4 أشخاص</option>
-                    <option value="5">5 أشخاص</option>
-                    <option value="6">6 أشخاص</option>
+                <label for="numberOfGuests">عدد الأشخاص *</label>
+                <select id="numberOfGuests" required onchange="calculateTotal()">
+                    <option value="">اختر العدد</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
                 </select>
             </div>
-            
-            <div class="form-group">
-                <label>تاريخ الحجز</label>
-                <input type="date" id="booking-date" required>
+            <div class="price-summary">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>السعر للشخص الواحد:</span>
+                    <span id="pricePerPerson">0 جنيه</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>عدد الأشخاص:</span>
+                    <span id="guestCount">0</span>
+                </div>
+                <hr style="margin: 1rem 0;">
+                <div class="total-price">إجمالي المبلغ: <span id="totalAmount">0 جنيه</span></div>
             </div>
-            
-            <div class="form-group">
-                <label>ملاحظات خاصة (اختياري)</label>
-                <input type="text" id="special-notes" placeholder="أي طلبات خاصة أو ملاحظات">
-            </div>
-            
-            <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <h3 id="booking-summary" style="color: #4ecdc4; text-align: center;"></h3>
-            </div>
-            
-            <button class="confirm-btn" onclick="confirmBooking()">تأكيد الحجز عبر WhatsApp</button>
+            <button class="whatsapp-btn" onclick="sendWhatsAppBooking()">📱 إرسال الحجز عبر واتساب</button>
         </div>
     </div>
 
     <script>
-        let selectedPackage = '';
-        let selectedPrice = 0;
+        let currentLanguage = 'en';
+        let selectedOfferType = '';
+        let offerPrice = 0;
+        const offerNames = {
+            'second': {
+                'en': 'Second Row Evening Offer',
+                'ar': '💥عرض الصف الثاني'
+            },
+            'vip': {
+                'en': 'VIP Evening Offer',
+                'ar': '💥صف اول  VIP'
+            }
+        };
 
-        function showBookingForm(packageType, price) {
-            selectedPackage = packageType;
-            selectedPrice = price;
+        function switchLanguage(lang) {
+            currentLanguage = lang;
             
-            // Generate unique discount code
-            const discountCode = generateDiscountCode();
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
             
-            document.getElementById('packages-section').style.display = 'none';
-            document.getElementById('booking-form').classList.add('active');
+            // Update content visibility
+            document.querySelectorAll('.lang-content').forEach(content => {
+                content.classList.remove('active');
+                if (content.dataset.lang === lang) {
+                    content.classList.add('active');
+                }
+            });
             
-            const packageName = packageType === 'first' ? 'الصف الأول VIP' : 'الصف الثاني';
-            document.getElementById('booking-summary').innerHTML = `
-                ${packageName} - ${price} جنيه للفرد<br>
-                <span style="color: #ffd93d; font-size: 1.1rem;">🎁 كود الخصم الخاص بك: <strong>${discountCode}</strong></span>
-            `;
+            // Update body direction
+            if (lang === 'ar') {
+                document.body.classList.add('rtl');
+            } else {
+                document.body.classList.remove('rtl');
+            }
             
-            // Store discount code for later use
-            window.currentDiscountCode = discountCode;
+            // Update placeholders
+            updatePlaceholders();
             
-            // Set minimum date to today
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('booking-date').setAttribute('min', today);
+            // Update prices in modal if it's open
+            if (selectedOfferType) {
+                updateModalPrices();
+            }
         }
 
-        function generateDiscountCode() {
-            const prefixes = ['VIP', 'NIGHT', 'CLUB', 'PARTY', 'ELITE', 'GOLD'];
-            const numbers = Math.floor(Math.random() * 9000) + 1000;
-            const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-            return `${prefix}${numbers}`;
+        function updatePlaceholders() {
+            const placeholders = {
+                'customerName': {
+                    'en': 'Enter your full name',
+                    'ar': 'أدخل اسمك الكامل'
+                },
+                'customerPhone': {
+                    'en': 'Enter your phone number',
+                    'ar': 'أدخل رقم هاتفك'
+                }
+            };
+
+            Object.keys(placeholders).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.placeholder = placeholders[id][currentLanguage];
+                }
+            });
         }
 
-        function hideBookingForm() {
-            document.getElementById('packages-section').style.display = 'block';
-            document.getElementById('booking-form').classList.remove('active');
+        function updateModalPrices() {
+            const currency = currentLanguage === 'en' ? 'EGP' : 'جنيه';
+            document.getElementById('pricePerPerson').textContent = offerPrice + ' ' + currency;
+            
+            const guests = document.getElementById('numberOfGuests').value;
+            if (guests) {
+                const total = offerPrice * parseInt(guests);
+                document.getElementById('totalAmount').textContent = total + ' ' + currency;
+            } else {
+                document.getElementById('totalAmount').textContent = '0 ' + currency;
+            }
         }
 
-        function confirmBooking() {
-            const name = document.getElementById('customer-name').value;
-            const phone = document.getElementById('customer-phone').value;
-            const guestCount = document.getElementById('guest-count').value;
-            const bookingDate = document.getElementById('booking-date').value;
-            const notes = document.getElementById('special-notes').value;
+        function openBookingModal(offerType, price) {
+            selectedOfferType = offerType;
+            offerPrice = price;
+            document.getElementById('selectedOfferName').textContent = offerNames[offerType]['ar'];
+            const currency = 'جنيه';
+            document.getElementById('pricePerPerson').textContent = price + ' ' + currency;
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('numberOfGuests').value = '';
+            document.getElementById('guestCount').textContent = '0';
+            document.getElementById('totalAmount').textContent = '0 ' + currency;
+            document.getElementById('bookingModal').classList.add('show');
+        }
 
-            if (!name || !phone || !guestCount || !bookingDate) {
-                alert('يرجى ملء جميع البيانات المطلوبة');
+        function calculateTotal() {
+            const guests = document.getElementById('numberOfGuests').value;
+            document.getElementById('guestCount').textContent = guests || '0';
+            updateModalPrices();
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('show');
+        }
+
+        function sendWhatsAppBooking() {
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const guests = document.getElementById('numberOfGuests').value;
+            const offer = offerNames[selectedOfferType][currentLanguage];
+            const total = offerPrice * (guests ? parseInt(guests) : 0);
+            const currency = currentLanguage === 'en' ? 'EGP' : 'جنيه';
+            if (!name || !phone || !guests) {
+                alert(currentLanguage === 'ar' ? 'يرجى إدخال جميع البيانات المطلوبة' : 'Please fill all required fields');
                 return;
             }
-
-            // Format the date
-            const dateObj = new Date(bookingDate);
-            const formattedDate = dateObj.toLocaleDateString('ar-EG', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-
-            const packageName = selectedPackage === 'first' ? 'الصف الأول VIP' : 'الصف الثاني';
-            const totalPrice = selectedPrice * parseInt(guestCount);
-
-            let message = `🎉 *حجز جديد - النايت كلوب*\n\n`;
-            message += `👤 *الاسم:* ${name}\n`;
-            message += `📱 *رقم الهاتف:* ${phone}\n`;
-            message += `🎫 *نوع التذكرة:* ${packageName}\n`;
-            message += `👥 *عدد الأشخاص:* ${guestCount}\n`;
-            message += `💰 *السعر للفرد:* ${selectedPrice} جنيه\n`;
-            message += `💳 *إجمالي المبلغ:* ${totalPrice} جنيه\n`;
-            message += `🎁 *كود الخصم:* ${window.currentDiscountCode}\n`;
-            message += `📅 *تاريخ الحجز:* ${formattedDate}\n\n`;
-            
-            message += `🎁 *العرض يشمل:*\n`;
-            message += `🍸 مشروبين فاخرين من اختيارك\n`;
-            message += `🥗 طبق مازة شرقية متنوع يفتح النفس\n`;
-            message += `🍓 طبق فواكه طازة ومختارة بعناية\n`;
-            message += `👸 مرافقة خاصة من اختيارك\n`;
-            
-            if (selectedPackage === 'first') {
-                message += `💎 خدمة VIP مميزة\n`;
-            }
-            
-            if (notes) {
-                message += `\n📝 *ملاحظات خاصة:* ${notes}\n`;
-            }
-            
-            message += `\n✅ يرجى تأكيد الحجز ومعلومات الدفع`;
-
-            const whatsappUrl = `https://wa.me/201286110562?text=${encodeURIComponent(message)}`;
+            let msg = `${currentLanguage === 'ar' ? 'حجز سهرة' : 'Evening Booking'}:\n` +
+                `${currentLanguage === 'ar' ? 'الاسم' : 'Name'}: ${name}\n` +
+                `${currentLanguage === 'ar' ? 'رقم الهاتف' : 'Phone'}: ${phone}\n` +
+                `${currentLanguage === 'ar' ? 'العرض' : 'Offer'}: ${offer}\n` +
+                `${currentLanguage === 'ar' ? 'عدد الأشخاص' : 'Guests'}: ${guests}\n` +
+                `${currentLanguage === 'ar' ? 'إجمالي المبلغ' : 'Total'}: ${total} ${currency}`;
+            let whatsappUrl = `https://wa.me/201114733671?text=${encodeURIComponent(msg)}`;
             window.open(whatsappUrl, '_blank');
+            closeBookingModal();
         }
 
-        // Add some interactive animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const packages = document.querySelectorAll('.package');
-            
-            packages.forEach((pkg, index) => {
-                pkg.style.animationDelay = `${index * 0.3}s`;
-            });
-        });
+        // معرض الصور المتبدلة
+        const galleryImages = [
+            '18183_703121.jpeg',
+            '357031_500160.jpeg',
+            '467018877_122094552596643264_5166060241914491195_n.jpg',
+            '515937717_122140568642643264_8812620047065069950_n.jpg'
+        ];
+        let galleryIndex = 0;
+        setInterval(() => {
+            galleryIndex = (galleryIndex + 1) % galleryImages.length;
+            const img = document.getElementById('galleryImg');
+            img.style.opacity = 0.3;
+            setTimeout(() => {
+                img.src = galleryImages[galleryIndex];
+                img.style.opacity = 1;
+            }, 600);
+        }, 3500);
+
+        // عند تغيير عدد الأشخاص
+        document.getElementById('numberOfGuests').addEventListener('change', calculateTotal);
     </script>
 </body>
 </html>
